@@ -12,6 +12,16 @@ BOT_NAME = 'bookscraper'
 SPIDER_MODULES = ['bookscraper.spiders']
 NEWSPIDER_MODULE = 'bookscraper.spiders'
 
+SCRAPEOPS_API_KEY = 'f16c1e11-329c-4f4c-a022-85458a01e2f3'
+
+EXTENSIONS = {
+    'scrapeops_scrapy.extension.ScrapeOpsMonitor': 500, 
+}
+
+DOWNLOADER_MIDDLEWARES = {
+    'scrapeops_scrapy.middleware.retry.RetryMiddleware': 550,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'bookscraper (+http://www.yourdomain.com)'
